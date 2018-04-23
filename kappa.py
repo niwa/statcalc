@@ -55,11 +55,6 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
     z = float(0)  #kappahat/se0
     p = float(0)  #1.-PROBN(z) kappa=<0
 
-    if Npp_param == "" or Npa_param == "" or Nap_param == "" or Naa_param == "" or kappatest_param == "":
-        return_string = '<table class="display_data"><tr><th>Info</th></tr><tr><td>At least one of the fields is blank</td></tr>'
-        return_string = return_string + '<tr><td>Use the back button to go back to the input page to correct and try again</td></tr>'
-        return_string = return_string + '</table>'
-        return return_string
     Npp = float(Npp_param)
     Npa = float(Npa_param)
     Nap = float(Nap_param)
