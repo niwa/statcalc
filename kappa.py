@@ -398,7 +398,6 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param,
     output += tabulate(table, tablefmt="grid")
     return output
 
-
 def probn(z):
     w = abs(z) / math.sqrt(2.)
     y = 1. / (1. + 0.5 * w)
@@ -414,7 +413,6 @@ def probn(z):
         erfcc = 2. - erfcc
     probn = 1.0 - 0.5 * erfcc
     return probn
-
 
 def main():
     parser = argparse.ArgumentParser()
@@ -452,7 +450,6 @@ def main():
     kappa = calculate_kappa(args.npp, args.npa, args.nap, args.naa,
                             args.kappatest)
     print(kappa)
-
 
 if __name__ == '__main__':
     main()
