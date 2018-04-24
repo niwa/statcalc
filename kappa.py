@@ -136,7 +136,7 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         #*No tests are performed.
         headers = ['Info']
         table = []
-        table.append(['Rater B has marked all tests as "present"; rater A has "present" and "absent".")'])
+        table.append(['Rater B has marked all tests as "present"; rater A has "present" and "absent".'])
         table.append(['In this case kappahat = kappa- = 0  but kappa+ is undefined.'])
         table.append(['No tests are performed.'])
         return tabulate(table, headers=headers, tablefmt="grid")
