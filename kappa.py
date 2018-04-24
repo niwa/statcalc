@@ -240,7 +240,6 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         table.append(['Try to correct the input and try again'])
         return tabulate(table, headers=headers, tablefmt="grid")
 
-
     #Standard error for test of zero kappa (Fleiss)
     denom = (1. - pe) * math.sqrt(n)
     numer = math.sqrt(pe + pe**2 - p1 * p2 * (p1 + p2) - q1 * q2 * (q1 + q2))
@@ -345,7 +344,6 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
     
     output += tabulate(table, tablefmt="grid")
     return output
-
 
 def probn(z):
     w = abs(z) / math.sqrt(2.)
