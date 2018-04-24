@@ -188,7 +188,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "source_data",
-        help="must be tilde (~) delimited.",
+        help="must be tilde (~) delimited. For example: 1~2~2~3~3~4",
         type=str)
     args = parser.parse_args()
     concordance = calculate_concordance(args.source_data)
