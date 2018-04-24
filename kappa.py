@@ -92,7 +92,7 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         table.append(['kappahat, kappa+ and kappa- are all undefined.'])
         table.append(['No tests can be performed.'])
         return tabulate(table, headers=headers, tablefmt="grid")
-#a=b=c=0
+    #a=b=c=0
     if Npp == 0 and Npa == 0 and Nap == 0:
         #Write
         #*Perfect agreement (all rating pairs are "absent")
@@ -104,7 +104,7 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         table.append(['kappahat, kappa+ and kappa- are all undefined.'])
         table.append(['No tests can be performed.'])
         return tabulate(table, headers=headers, tablefmt="grid")
-#a=c=d=0
+    #a=c=d=0
     if Npp == 0 and Nap == 0 and Naa == 0:
         #Write
         #*Perfect disagreement (all rating pairs are "present"/"absent")
@@ -116,7 +116,7 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         table.append(['kappahat = kappa+ = 0 (= minimum value in this case), but kappa- is undefined.'])
         table.append(['No tests performed.'])
         return tabulate(table, headers=headers, tablefmt="grid")
-#a=b=d=0
+    #a=b=d=0
     if Npp == 0 and Npa == 0 and Naa == 0:
         #Write
         #*Perfect disagreement (all rating pairs are "absent"/"present")
@@ -128,7 +128,7 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         table.append(['kappahat = kappa- = 0 (= minimum value in this case), but kappa+ is undefined.'])
         table.append(['No tests performed.'])
         return tabulate(table, headers=headers, tablefmt="grid")
-#b=d=0
+    #b=d=0
     if Npp != 0 and Npa == 0 and Nap != 0 and Naa == 0:
         #Write
         #*Rater B has marked all tests as "present"; rater A has "present" and "absent".
@@ -140,7 +140,7 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         table.append(['In this case kappahat = kappa- = 0  but kappa+ is undefined.'])
         table.append(['No tests are performed.'])
         return tabulate(table, headers=headers, tablefmt="grid")
-#a=c=0
+    #a=c=0
     if Npp == 0 and Npa != 0 and Nap == 0 and Naa != 0:
         #write
         #*Rater B has marked all tests as "absent"; rater A has "present" and "absent".
@@ -152,7 +152,7 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         table.append(['In this case kappahat = kappa+ = 0  but kappa- is undefined.'])
         table.append(['No tests performed.'])
         return tabulate(table, headers=headers, tablefmt="grid")
-#c=d=0
+    #c=d=0
     if Npp != 0 and Npa != 0 and Nap == 0 and Naa == 0:
         #write
         #*Rater A has marked all tests as "present"; rater B has "present" and "absent".
@@ -164,7 +164,7 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         table.append(['In this case kappahat = kappa+ = 0  but kappa- is undefined.'])
         table.append(['No tests are performed.'])
         return tabulate(table, headers=headers, tablefmt="grid")
-#a=b=0
+    #a=b=0
     if Npp == 0 and Npa == 0 and Nap != 0 and Naa != 0:
         #write
         #*Rater A has marked all tests as "absent"; rater B has "present" and "absent".
@@ -176,7 +176,7 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         table.append(['In this case kappahat = kappa- = 0  but kappa+ is undefined.'])
         table.append(['No tests are performed.'])
         return tabulate(table, headers=headers, tablefmt="grid")
-#b=c=0
+    #b=c=0
     if Npa == 0 and Nap == 0 and Naa != 0 and Npp != 0:
         #write
         #*Perfect agreement (some rating pairs are "present", all others are "absent").
@@ -189,24 +189,24 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         table.append(['No tests performed.'])
         return tabulate(table, headers=headers, tablefmt="grid")
 
-#test print
-#print 'n = ',n
-#print 'Npp = ',Npp
-#rint 'Npa = ',Npa
-#print 'Nap = ',Nap
-#print 'Naa = ',Naa
-#print 'a = ',a
-#print 'b = ',b
-#print 'c = ',c
-#print 'd = ',d
-#print 'p1 = ',p1
-#print 'p2 = ',p2
-#print 'q1 = ',q1
-#print 'q2 = ',q2
-#print 'po = ',po
-#print 'pe = ',pe
+    #test print
+    #print 'n = ',n
+    #print 'Npp = ',Npp
+    #rint 'Npa = ',Npa
+    #print 'Nap = ',Nap
+    #print 'Naa = ',Naa
+    #print 'a = ',a
+    #print 'b = ',b
+    #print 'c = ',c
+    #print 'd = ',d
+    #print 'p1 = ',p1
+    #print 'p2 = ',p2
+    #print 'q1 = ',q1
+    #print 'q2 = ',q2
+    #print 'po = ',po
+    #print 'pe = ',pe
 
-#estmated Kappa value - k is used to shorten expressions later
+    #estmated Kappa value - k is used to shorten expressions later
     kappahat = (po - pe) / (1. - pe)
     k = kappahat
     kappaplus = (a - p1 * p2) / (p1 - p1 * p2)
@@ -229,7 +229,7 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
                     kappaminus)[:6]])
         return tabulate(table, headers=headers, tablefmt="grid")
 
-#test kappa value make sure between 0 and 1
+    #test kappa value make sure between 0 and 1
     if kappatest < 0 or kappatest >= 1:
         #Write
         #*Kappatest must be greater than or equal to zero and less than 1.
@@ -241,7 +241,7 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         return tabulate(table, headers=headers, tablefmt="grid")
 
 
-#Standard error for test of zero kappa (Fleiss)
+    #Standard error for test of zero kappa (Fleiss)
     denom = (1. - pe) * math.sqrt(n)
     numer = math.sqrt(pe + pe**2 - p1 * p2 * (p1 + p2) - q1 * q2 * (q1 + q2))
     se0 = numer / denom
