@@ -7,7 +7,8 @@ import math
 from tabulate import tabulate
 
 
-def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param):
+def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param,
+                    kappatest_param):
     """Created march 2003 by G.W.Payne
        Kappa calculator as described by Mr Graham McBride in Evaluation of Colilert Procedures
        Using Cohen's "Kappa" Statistic As The Measure Of Agreement With A Standard.
@@ -112,8 +113,11 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         #*No tests performed.
         headers = ['Info']
         table = []
-        table.append(['Perfect disagreement (all rating pairs are "present"/"absent")'])
-        table.append(['kappahat = kappa+ = 0 (= minimum value in this case), but kappa- is undefined.'])
+        table.append(
+            ['Perfect disagreement (all rating pairs are "present"/"absent")'])
+        table.append([
+            'kappahat = kappa+ = 0 (= minimum value in this case), but kappa- is undefined.'
+        ])
         table.append(['No tests performed.'])
         return tabulate(table, headers=headers, tablefmt="grid")
     #a=b=d=0
@@ -124,8 +128,11 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         #*No tests performed.
         headers = ['Info']
         table = []
-        table.append(['Perfect disagreement (all rating pairs are "present"/"absent")'])
-        table.append(['kappahat = kappa- = 0 (= minimum value in this case), but kappa+ is undefined.'])
+        table.append(
+            ['Perfect disagreement (all rating pairs are "present"/"absent")'])
+        table.append([
+            'kappahat = kappa- = 0 (= minimum value in this case), but kappa+ is undefined.'
+        ])
         table.append(['No tests performed.'])
         return tabulate(table, headers=headers, tablefmt="grid")
     #b=d=0
@@ -136,8 +143,11 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         #*No tests are performed.
         headers = ['Info']
         table = []
-        table.append(['Rater B has marked all tests as "present"; rater A has "present" and "absent".'])
-        table.append(['In this case kappahat = kappa- = 0  but kappa+ is undefined.'])
+        table.append([
+            'Rater B has marked all tests as "present"; rater A has "present" and "absent".'
+        ])
+        table.append(
+            ['In this case kappahat = kappa- = 0  but kappa+ is undefined.'])
         table.append(['No tests are performed.'])
         return tabulate(table, headers=headers, tablefmt="grid")
     #a=c=0
@@ -148,8 +158,11 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         #*No tests performed.
         headers = ['Info']
         table = []
-        table.append(['Rater B has marked all tests as "absent"; rater A has "present" and "absent".'])
-        table.append(['In this case kappahat = kappa+ = 0  but kappa- is undefined.'])
+        table.append([
+            'Rater B has marked all tests as "absent"; rater A has "present" and "absent".'
+        ])
+        table.append(
+            ['In this case kappahat = kappa+ = 0  but kappa- is undefined.'])
         table.append(['No tests performed.'])
         return tabulate(table, headers=headers, tablefmt="grid")
     #c=d=0
@@ -160,8 +173,11 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         #*No tests are performed.
         headers = ['Info']
         table = []
-        table.append(['Rater A has marked all tests as "present"; rater B has "present" and "absent".'])
-        table.append(['In this case kappahat = kappa+ = 0  but kappa- is undefined.'])
+        table.append([
+            'Rater A has marked all tests as "present"; rater B has "present" and "absent".'
+        ])
+        table.append(
+            ['In this case kappahat = kappa+ = 0  but kappa- is undefined.'])
         table.append(['No tests are performed.'])
         return tabulate(table, headers=headers, tablefmt="grid")
     #a=b=0
@@ -172,8 +188,11 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         #*No tests are performed.
         headers = ['Info']
         table = []
-        table.append(['Rater A has marked all tests as "absent"; rater B has "present" and "absent".'])
-        table.append(['In this case kappahat = kappa- = 0  but kappa+ is undefined.'])
+        table.append([
+            'Rater A has marked all tests as "absent"; rater B has "present" and "absent".'
+        ])
+        table.append(
+            ['In this case kappahat = kappa- = 0  but kappa+ is undefined.'])
         table.append(['No tests are performed.'])
         return tabulate(table, headers=headers, tablefmt="grid")
     #b=c=0
@@ -184,7 +203,9 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         #*No tests performed.
         headers = ['Info']
         table = []
-        table.append(['Perfect agreement (some rating pairs are "present", all others are "absent").'])
+        table.append([
+            'Perfect agreement (some rating pairs are "present", all others are "absent").'
+        ])
         table.append(['In this case kappahat = kappa+ = kappa- = 1.'])
         table.append(['No tests performed.'])
         return tabulate(table, headers=headers, tablefmt="grid")
@@ -220,13 +241,20 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         #*No tests performed. For the record  kappahat = {kappahat}, kappa+ = {kappaplus}, kappa- = {kappaminus}
         headers = ['Info']
         table = []
-        table.append(['Perfect disagreement (some rating pairs are "present/absent", all others are "absent/present").'])
-        table.append(['If there are equal numbers of both then kappahat = kappa+ = kappa- = -1, otherwise'])
-        table.append(['kappahat is between 0 and -1 and is straddled by kappa+ and kappa-.'])
-        table.append(['No tests performed. For the record  kappahat = '  + str(
-            kappahat)[:6] + ', kappa+ = ' + str(
-                kappaplus)[:6] + ', kappa- = ' + str(
-                    kappaminus)[:6]])
+        table.append([
+            'Perfect disagreement (some rating pairs are "present/absent", all others are "absent/present").'
+        ])
+        table.append([
+            'If there are equal numbers of both then kappahat = kappa+ = kappa- = -1, otherwise'
+        ])
+        table.append([
+            'kappahat is between 0 and -1 and is straddled by kappa+ and kappa-.'
+        ])
+        table.append([
+            'No tests performed. For the record  kappahat = ' +
+            str(kappahat)[:6] + ', kappa+ = ' + str(kappaplus)[:6] +
+            ', kappa- = ' + str(kappaminus)[:6]
+        ])
         return tabulate(table, headers=headers, tablefmt="grid")
 
     #test kappa value make sure between 0 and 1
@@ -236,7 +264,9 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         #*Use the back button to go back to the input page to correct.
         headers = ['Info']
         table = []
-        table.append(['Kappatest must be greater than or equal to zero and less than 1.'])
+        table.append([
+            'Kappatest must be greater than or equal to zero and less than 1.'
+        ])
         table.append(['Try to correct the input and try again'])
         return tabulate(table, headers=headers, tablefmt="grid")
 
@@ -301,8 +331,12 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
     output += "\n"
 
     table = []
-    table.append(['kappahat = ' + str(kappahat)[:6] + ', (kappa+ = ' + str(kappaplus)[:6] + '. kappa- = ' + str(kappaminus)[:6] + ')'])
-    table.append(['s.e.(0) = ' + str(se0)[:6] + ',  s.e.(kappahat) = ' + str(sek)[:6]])
+    table.append([
+        'kappahat = ' + str(kappahat)[:6] + ', (kappa+ = ' +
+        str(kappaplus)[:6] + '. kappa- = ' + str(kappaminus)[:6] + ')'
+    ])
+    table.append(
+        ['s.e.(0) = ' + str(se0)[:6] + ',  s.e.(kappahat) = ' + str(sek)[:6]])
     table.append([''])
     table.append(['Hypothesis test p-values'])
     table.append(['One-sided test, H0 is kappa =<0'])
@@ -314,7 +348,8 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
     elif p > 0.9999:
         table.append(['p = Prob[>kappahat, given that kappa=0] > 0.9999'])
     else:
-        table.append(['p = Prob[>kappahat, given that kappa=0] = ' + str(p)[:6]])
+        table.append(
+            ['p = Prob[>kappahat, given that kappa=0] = ' + str(p)[:6]])
 
     #*
     #*One-sided test, H0 is kappa =< {kappatest}
@@ -323,11 +358,20 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
     z = (kappahat - kappatest) / sek
     p = 1 - probn(z)
     if p < 0.0001:
-        table.append(['p = Prob[>kappahat, given that kappa= ' + str(kappatest)[:6] + '] < 0.0001'])
+        table.append([
+            'p = Prob[>kappahat, given that kappa= ' + str(kappatest)[:6] +
+            '] < 0.0001'
+        ])
     elif p > 0.9999:
-        table.append(['p = Prob[>kappahat, given that kappa= ' + str(kappatest)[:6] + '] > 0.9999'])
+        table.append([
+            'p = Prob[>kappahat, given that kappa= ' + str(kappatest)[:6] +
+            '] > 0.9999'
+        ])
     else:
-        table.append(['p = Prob[>kappahat, given that kappa= ' + str(kappatest)[:6] + '] = ' + str(p)[:6]])
+        table.append([
+            'p = Prob[>kappahat, given that kappa= ' + str(kappatest)[:6] +
+            '] = ' + str(p)[:6]
+        ])
 
     #*
     #*Two-sided test, H0 is kappa={kappatest}
@@ -336,14 +380,24 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
     z = abs(kappahat - kappatest) / sek
     p = 2. * (1. - probn(z))
     if p < 0.0001:
-        table.append(['p = Prob[>|kappahat-kappa|, given that kappa= ' + str(kappatest)[:6] + '] < 0.0001'])
+        table.append([
+            'p = Prob[>|kappahat-kappa|, given that kappa= ' +
+            str(kappatest)[:6] + '] < 0.0001'
+        ])
     elif p > 0.9999:
-        table.append(['p = Prob[>|kappahat-kappa|, given that kappa= ' + str(kappatest)[:6] + '] > 0.9999'])
+        table.append([
+            'p = Prob[>|kappahat-kappa|, given that kappa= ' +
+            str(kappatest)[:6] + '] > 0.9999'
+        ])
     else:
-        table.append(['p = Prob[>|kappahat-kappa|, given that kappa= ' + str(kappatest)[:6] + '] = ' + str(p)[:6]])
-    
+        table.append([
+            'p = Prob[>|kappahat-kappa|, given that kappa= ' +
+            str(kappatest)[:6] + '] = ' + str(p)[:6]
+        ])
+
     output += tabulate(table, tablefmt="grid")
     return output
+
 
 def probn(z):
     w = abs(z) / math.sqrt(2.)
@@ -361,16 +415,44 @@ def probn(z):
     probn = 1.0 - 0.5 * erfcc
     return probn
 
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--npp", help="number of present/present ratings", type=float, required=True, metavar=0.0)
-    parser.add_argument("--npa", help="number of present/absent ratings", type=float, required=True, metavar=0.0)
-    parser.add_argument("--nap", help="number of absent/present ratings", type=float, required=True, metavar=0.0)
-    parser.add_argument("--naa", help="number of absent/absent ratings", type=float, required=True, metavar=0.0)
-    parser.add_argument("--kappatest", help="test value of kappa (must be >= 0 and < 1", type=float, required=True, metavar=0.0)
+    parser.add_argument(
+        "--npp",
+        help="number of present/present ratings",
+        type=float,
+        required=True,
+        metavar=0.0)
+    parser.add_argument(
+        "--npa",
+        help="number of present/absent ratings",
+        type=float,
+        required=True,
+        metavar=0.0)
+    parser.add_argument(
+        "--nap",
+        help="number of absent/present ratings",
+        type=float,
+        required=True,
+        metavar=0.0)
+    parser.add_argument(
+        "--naa",
+        help="number of absent/absent ratings",
+        type=float,
+        required=True,
+        metavar=0.0)
+    parser.add_argument(
+        "--kappatest",
+        help="test value of kappa (must be >= 0 and < 1",
+        type=float,
+        required=True,
+        metavar=0.0)
     args = parser.parse_args()
-    kappa = calculate_kappa(args.npp, args.npa, args.nap, args.naa, args.kappatest)
+    kappa = calculate_kappa(args.npp, args.npa, args.nap, args.naa,
+                            args.kappatest)
     print(kappa)
+
 
 if __name__ == '__main__':
     main()
