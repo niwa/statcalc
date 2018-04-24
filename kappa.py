@@ -4,6 +4,8 @@
 import argparse
 import math
 
+from tabulate import tabulate
+
 
 def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param):
     """Created march 2003 by G.W.Payne
@@ -84,90 +86,108 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         #*Perfect agreement (all rating pairs are "present")
         #*kappahat, kappa+ and kappa- are all undefined.
         #*No tests can be performed.
-        return_string = '<table class="display_data"><tr><th>Info</th></tr><tr><td>Perfect agreement (all rating pairs are "present")</td></tr>'
-        return_string = return_string + '<tr><td>kappahat, kappa+ and kappa- are all undefined.</td></tr>'
-        return_string = return_string + '<tr><td>No tests can be performed.</td></tr></table>'
-        return return_string
+        headers = ['Info']
+        table = []
+        table.append(['Perfect agreement (all rating pairs are "present")'])
+        table.append(['kappahat, kappa+ and kappa- are all undefined.'])
+        table.append(['No tests can be performed.'])
+        return tabulate(table, headers=headers, tablefmt="grid")
 #a=b=c=0
     if Npp == 0 and Npa == 0 and Nap == 0:
         #Write
         #*Perfect agreement (all rating pairs are "absent")
         #*kappahat, kappa+ and kappa- are all undefined.
         #*No tests can be performed.
-        return_string = '<table class="display_data"><tr><th>Info</th></tr><tr><td>Perfect agreement (all rating pairs are "absent")</td></tr>'
-        return_string = return_string + '<tr><td>kappahat, kappa+ and kappa- are all undefined.</td></tr>'
-        return_string = return_string + '<tr><td>No tests can be performed.</td></tr></table>'
-        return return_string
+        headers = ['Info']
+        table = []
+        table.append(['Perfect agreement (all rating pairs are "absent")'])
+        table.append(['kappahat, kappa+ and kappa- are all undefined.'])
+        table.append(['No tests can be performed.'])
+        return tabulate(table, headers=headers, tablefmt="grid")
 #a=c=d=0
     if Npp == 0 and Nap == 0 and Naa == 0:
         #Write
         #*Perfect disagreement (all rating pairs are "present"/"absent")
         #*kappahat = kappa+ = 0 (= minimum value in this case), but kappa- is undefined.
         #*No tests performed.
-        return_string = '<table class="display_data"><tr><th>Info</th></tr><tr><td>Perfect disagreement (all rating pairs are "present"/"absent")</td></tr>'
-        return_string = return_string + '<tr><td>kappahat = kappa+ = 0 (= minimum value in this case), but kappa- is undefined.</td></tr>'
-        return_string = return_string + '<tr><td>No tests performed.</td></tr></table>'
-        return return_string
+        headers = ['Info']
+        table = []
+        table.append(['Perfect disagreement (all rating pairs are "present"/"absent")'])
+        table.append(['kappahat = kappa+ = 0 (= minimum value in this case), but kappa- is undefined.'])
+        table.append(['No tests performed.'])
+        return tabulate(table, headers=headers, tablefmt="grid")
 #a=b=d=0
     if Npp == 0 and Npa == 0 and Naa == 0:
         #Write
         #*Perfect disagreement (all rating pairs are "absent"/"present")
         #*kappahat = kappa- = 0 (= minimum value in this case), but kappa+ is undefined.
         #*No tests performed.
-        return_string = '<table class="display_data"><tr><th>Info</th></tr><tr><td>Perfect disagreement (all rating pairs are "present"/"absent")</td></tr>'
-        return_string = return_string + '<tr><td>kappahat = kappa- = 0 (= minimum value in this case), but kappa+ is undefined.</td></tr>'
-        return_string = return_string + '<tr><td>No tests performed.</td></tr></table>'
-        return return_string
+        headers = ['Info']
+        table = []
+        table.append(['Perfect disagreement (all rating pairs are "present"/"absent")'])
+        table.append(['kappahat = kappa- = 0 (= minimum value in this case), but kappa+ is undefined.'])
+        table.append(['No tests performed.'])
+        return tabulate(table, headers=headers, tablefmt="grid")
 #b=d=0
     if Npp != 0 and Npa == 0 and Nap != 0 and Naa == 0:
         #Write
         #*Rater B has marked all tests as "present"; rater A has "present" and "absent".
         #*In this case kappahat = kappa- = 0  but kappa+ is undefined.
         #*No tests are performed.
-        return_string = '<table class="display_data"><tr><th>Info</th></tr><tr><td>Rater B has marked all tests as "present"; rater A has "present" and "absent".</td></tr>'
-        return_string = return_string + '<tr><td>In this case kappahat = kappa- = 0  but kappa+ is undefined.</td></tr>'
-        return_string = return_string + '<tr><td>No tests are performed.</td></tr></table>'
-        return return_string
+        headers = ['Info']
+        table = []
+        table.append(['Rater B has marked all tests as "present"; rater A has "present" and "absent".")'])
+        table.append(['In this case kappahat = kappa- = 0  but kappa+ is undefined.'])
+        table.append(['No tests are performed.'])
+        return tabulate(table, headers=headers, tablefmt="grid")
 #a=c=0
     if Npp == 0 and Npa != 0 and Nap == 0 and Naa != 0:
         #write
         #*Rater B has marked all tests as "absent"; rater A has "present" and "absent".
         #*In this case kappahat = kappa+ = 0  but kappa- is undefined.
         #*No tests performed.
-        return_string = '<table class="display_data"><tr><th>Info</th></tr><tr><td>Rater B has marked all tests as "absent"; rater A has "present" and "absent".</td></tr>'
-        return_string = return_string + '<tr><td>In this case kappahat = kappa+ = 0  but kappa- is undefined.</td></tr>'
-        return_string = return_string + '<tr><td>No tests performed.</td></tr></table>'
-        return return_string
+        headers = ['Info']
+        table = []
+        table.append(['Rater B has marked all tests as "absent"; rater A has "present" and "absent".'])
+        table.append(['In this case kappahat = kappa+ = 0  but kappa- is undefined.'])
+        table.append(['No tests performed.'])
+        return tabulate(table, headers=headers, tablefmt="grid")
 #c=d=0
     if Npp != 0 and Npa != 0 and Nap == 0 and Naa == 0:
         #write
         #*Rater A has marked all tests as "present"; rater B has "present" and "absent".
         #*In this case kappahat = kappa+ = 0  but kappa- is undefined.
         #*No tests are performed.
-        return_string = '<table class="display_data"><tr><th>Info</th></tr><tr><td>Rater A has marked all tests as "present"; rater B has "present" and "absent".</td></tr>'
-        return_string = return_string + '<tr><td>In this case kappahat = kappa+ = 0  but kappa- is undefined.</td></tr>'
-        return_string = return_string + '<tr><td>No tests performed.</td></tr></table>'
-        return return_string
+        headers = ['Info']
+        table = []
+        table.append(['Rater A has marked all tests as "present"; rater B has "present" and "absent".'])
+        table.append(['In this case kappahat = kappa+ = 0  but kappa- is undefined.'])
+        table.append(['No tests are performed.'])
+        return tabulate(table, headers=headers, tablefmt="grid")
 #a=b=0
     if Npp == 0 and Npa == 0 and Nap != 0 and Naa != 0:
         #write
         #*Rater A has marked all tests as "absent"; rater B has "present" and "absent".
         #*In this case kappahat = kappa- = 0  but kappa+ is undefined.
         #*No tests are performed.
-        return_string = '<table class="display_data"><tr><th>Info</th></tr><tr><td>Rater A has marked all tests as "absent"; rater B has "present" and "absent".</td></tr>'
-        return_string = return_string + '<tr><td>In this case kappahat = kappa- = 0  but kappa+ is undefined.</td></tr>'
-        return_string = return_string + '<tr><td>No tests performed.</td></tr></table>'
-        return return_string
+        headers = ['Info']
+        table = []
+        table.append(['Rater A has marked all tests as "absent"; rater B has "present" and "absent".'])
+        table.append(['In this case kappahat = kappa- = 0  but kappa+ is undefined.'])
+        table.append(['No tests are performed.'])
+        return tabulate(table, headers=headers, tablefmt="grid")
 #b=c=0
     if Npa == 0 and Nap == 0 and Naa != 0 and Npp != 0:
         #write
         #*Perfect agreement (some rating pairs are "present", all others are "absent").
         #*In this case kappahat = kappa+ = kappa- = 1.
         #*No tests performed.
-        return_string = '<table class="display_data"><tr><th>Info</th></tr><tr><td>Perfect agreement (some rating pairs are "present", all others are "absent").</td></tr>'
-        return_string = return_string + '<tr><td>In this case kappahat = kappa+ = kappa- = 1.</td></tr>'
-        return_string = return_string + '<tr><td>No tests performed.</td></tr></table>'
-        return return_string
+        headers = ['Info']
+        table = []
+        table.append(['Perfect agreement (some rating pairs are "present", all others are "absent").'])
+        table.append(['In this case kappahat = kappa+ = kappa- = 1.'])
+        table.append(['No tests performed.'])
+        return tabulate(table, headers=headers, tablefmt="grid")
 
 #test print
 #print 'n = ',n
@@ -198,25 +218,27 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
         #*If there are equal numbers of both then kappahat = kappa+ =kappa- = -1, otherwise
         #*kappahat is between 0 and -1 and is straddled by kappa+ and kappa-.
         #*No tests performed. For the record  kappahat = {kappahat}, kappa+ = {kappaplus}, kappa- = {kappaminus}
-        return_string = '<table class="display_data"><tr><th>Info</th></tr><tr><td>Perfect disagreement (some rating pairs are "present/absent", all others are "absent/present").</td></tr>'
-        return_string = return_string + '<tr><td>If there are equal numbers of both then kappahat = kappa+ = kappa- = -1, otherwise</td></tr>'
-        return_string = return_string + '<tr><td>kappahat is between 0 and -1 and is straddled by kappa+ and kappa-.</td></tr></table>'
-        return_string = return_string + '<tr><td>No tests performed. For the record  kappahat = ' + str(
+        headers = ['Info']
+        table = []
+        table.append(['Perfect disagreement (some rating pairs are "present/absent", all others are "absent/present").'])
+        table.append(['If there are equal numbers of both then kappahat = kappa+ = kappa- = -1, otherwise'])
+        table.append(['kappahat is between 0 and -1 and is straddled by kappa+ and kappa-.'])
+        table.append(['No tests performed. For the record  kappahat = '  + str(
             kappahat)[:6] + ', kappa+ = ' + str(
                 kappaplus)[:6] + ', kappa- = ' + str(
-                    kappaminus)[:6] + '</td></tr>'
-        return_string = return_string + '</table>'
-        return return_string
+                    kappaminus)[:6]])
+        return tabulate(table, headers=headers, tablefmt="grid")
 
 #test kappa value make sure between 0 and 1
     if kappatest < 0 or kappatest >= 1:
         #Write
         #*Kappatest must be greater than or equal to zero and less than 1.
         #*Use the back button to go back to the input page to correct.
-        return_string = '<table class="display_data"><tr><th>Info</th></tr><tr><td>Kappatest must be greater than or equal to zero and less than 1.</td></tr>'
-        return_string = return_string + '<tr><td>Use the back button to go back to the input page to correct and try again</td></tr>'
-        return_string = return_string + '</table>'
-        return return_string
+        headers = ['Info']
+        table = []
+        table.append(['Kappatest must be greater than or equal to zero and less than 1.'])
+        table.append(['Try to correct the input and try again'])
+        return tabulate(table, headers=headers, tablefmt="grid")
 
 
 #Standard error for test of zero kappa (Fleiss)
@@ -268,67 +290,61 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
     #*
     #*HYPOTHESIS TEST p-VALUES
     #*One-sided test, H0 is kappa =<0
-    return_string = '<h2>Results for 2x2 Interrater table</h2>'
-    return_string = return_string + '<table class="display_data"><tr><th>Rater A</th><th colspan="2">Rater B</th></tr>'
-    return_string = return_string + '<tr><th></th><th>present</th><th>absent</th></tr>'
-    return_string = return_string + '<tr><th>present</th><td>' + str(
-        int(Npp)) + '</td><td>' + str(int(Npa)) + '</td></tr>'
-    return_string = return_string + '<tr><th>absent</th><td>' + str(
-        int(Nap)) + '</td><td>' + str(int(Naa)) + '</td></tr>'
-    return_string = return_string + '</table>'
+    output = "Results for 2x2 Interrater table\n"
 
-    return_string = return_string + '<table class="display_data"><tr><td>kappahat = ' + str(
-        kappahat)[:6] + ',  (kappa+ = ' + str(
-            kappaplus)[:6] + '. kappa- = ' + str(kappaminus)[:6] + ')</td></tr>'
-    return_string = return_string + '<tr><td>s.e.(0) = ' + str(
-        se0)[:6] + ',  s.e.(kappahat) = ' + str(sek)[:6] + '</td></tr>'
-    return_string = return_string + '<tr><th>&nbsp;</th></tr>'
-    return_string = return_string + '<tr><th>Hypothesis test p-values</th></tr>'
-    return_string = return_string + '<tr><td>One-sided test, H0 is kappa =<0</td></tr>'
+    headers = ['Rater A', 'Rater B', None]
+    table = []
+    table.append([None, 'present', 'absent'])
+    table.append(['present', str(int(Npp)), str(int(Npa))])
+    table.append(['absent', str(int(Nap)), str(int(Naa))])
+    output += tabulate(table, headers=headers, tablefmt="grid")
+
+    output += "\n"
+
+    table = []
+    table.append(['kappahat = ' + str(kappahat)[:6] + ', (kappa+ = ' + str(kappaplus)[:6] + '. kappa- = ' + str(kappaminus)[:6] + ')'])
+    table.append(['s.e.(0) = ' + str(se0)[:6] + ',  s.e.(kappahat) = ' + str(sek)[:6]])
+    table.append([''])
+    table.append(['Hypothesis test p-values'])
+    table.append(['One-sided test, H0 is kappa =<0'])
 
     z = kappahat / se0
     p = 1. - probn(z)
     if p < 0.0001:
-        return_string = return_string + '<tr><td>p = Prob[>kappahat, given that kappa=0] < 0.0001</td></tr>'
+        table.append(['p = Prob[>kappahat, given that kappa=0] < 0.0001'])
     elif p > 0.9999:
-        return_string = return_string + '<tr><td>p = Prob[>kappahat, given that kappa=0] > 0.9999</td></tr>'
+        table.append(['p = Prob[>kappahat, given that kappa=0] > 0.9999'])
     else:
-        return_string = return_string + '<tr><td>p = Prob[>kappahat, given that kappa=0] = ' + str(
-            p)[:6] + '</td></tr>'
+        table.append(['p = Prob[>kappahat, given that kappa=0] = ' + str(p)[:6]])
 
     #*
     #*One-sided test, H0 is kappa =< {kappatest}
-    return_string = return_string + '<tr><th>&nbsp;</th></tr><tr><td>One-sided test, H0 is kappa =< ' + str(
-        kappatest)[:4] + '</td></tr>'
+    table.append([''])
+    table.append(['One-sided test, H0 is kappa =< ' + str(kappatest)[:4]])
     z = (kappahat - kappatest) / sek
     p = 1 - probn(z)
     if p < 0.0001:
-        return_string = return_string + '<tr><td>p = Prob[>kappahat, given that kappa= ' + str(
-            kappatest)[:6] + '] < 0.0001</td></tr>'
+        table.append(['p = Prob[>kappahat, given that kappa= ' + str(kappatest)[:6] + '] < 0.0001'])
     elif p > 0.9999:
-        return_string = return_string + '<tr><td>p = Prob[>kappahat, given that kappa= ' + str(
-            kappatest)[:6] + '] > 0.9999</td></tr>'
+        table.append(['p = Prob[>kappahat, given that kappa= ' + str(kappatest)[:6] + '] > 0.9999'])
     else:
-        return_string = return_string + '<tr><td>p = Prob[>kappahat, given that kappa= ' + str(
-            kappatest)[:6] + '] = ' + str(p)[:6] + '</td></tr>'
+        table.append(['p = Prob[>kappahat, given that kappa= ' + str(kappatest)[:6] + '] = ' + str(p)[:6]])
 
     #*
     #*Two-sided test, H0 is kappa={kappatest}
-    return_string = return_string + '<tr><th>&nbsp;</th></tr><tr><td>Two-sided test, H0 is kappa= ' + str(
-        kappatest)[:6] + '</td></tr>'
+    table.append([''])
+    table.append(['Two-sided test, H0 is kappa= ' + str(kappatest)[:6]])
     z = abs(kappahat - kappatest) / sek
     p = 2. * (1. - probn(z))
     if p < 0.0001:
-        return_string = return_string + '<tr><td>p = Prob[>|kappahat-kappa|, given that kappa= ' + str(
-            kappatest)[:6] + '] < 0.0001</td></tr>'
+        table.append(['p = Prob[>|kappahat-kappa|, given that kappa= ' + str(kappatest)[:6] + '] < 0.0001'])
     elif p > 0.9999:
-        return_string = return_string + '<tr><td>p = Prob[>|kappahat-kappa|, given that kappa= ' + str(
-            kappatest)[:6] + '] > 0.9999</td></tr>'
+        table.append(['p = Prob[>|kappahat-kappa|, given that kappa= ' + str(kappatest)[:6] + '] > 0.9999'])
     else:
-        return_string = return_string + '<tr><td>p = Prob[>|kappahat-kappa|, given that kappa= ' + str(
-            kappatest)[:6] + '] = ' + str(p)[:6] + '</td></tr>'
-    return_string = return_string + '</table>'
-    return return_string
+        table.append(['p = Prob[>|kappahat-kappa|, given that kappa= ' + str(kappatest)[:6] + '] = ' + str(p)[:6]])
+    
+    output += tabulate(table, tablefmt="grid")
+    return output
 
 
 def probn(z):
