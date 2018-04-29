@@ -8,6 +8,23 @@ Statistics tools, including a kappa calculator and a Lin's concordance calculato
 * Python dependencies (see `requirements.txt` for a complete listing)
 * Windows, MacOS, Linux or any other *nix OS
 
+This project uses Python 3.x `unittest` module for tests. You may need to install the
+requirements first. Also, if you would like to view the test coverage, please
+install the `coverage` module.
+
+For running the tests.
+
+```shell
+python3 test.py
+```
+
+For measuring the coverage and producing an HTML report.
+
+```shell
+coverage run tests.py
+coverage html
+```
+
 ## Kappa calculator
 
 Sample usage for `kappa.py`:
