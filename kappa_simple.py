@@ -313,7 +313,7 @@ def calculate_kappa(Npp_param, Npa_param, Nap_param, Naa_param, kappatest_param)
     elif p > 0.9999:
         table.append(['p = Prob[>estimated kappa, given that kappa= ' + str(kappatest)[:6] +'] > 0.9999'])
     else:
-        table.append(['p = Prob[>estimated kappa, given that kappa= ' + str(p)[:6] + str(kappatest)[:6] +'] = ' + str(p)[:6]])
+        table.append(['p = Prob[>estimated kappa, given that kappa= ' + str(kappatest)[:6] +'] = ' + str(p)[:6]])
 
     output += tabulate(table, tablefmt="grid")
     return output
