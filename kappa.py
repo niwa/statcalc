@@ -3,6 +3,7 @@
 
 import argparse
 import math
+import sys
 
 from tabulate import tabulate
 
@@ -414,7 +415,7 @@ def probn(z):
     probn = 1.0 - 0.5 * erfcc
     return probn
 
-def main():
+def main(args): # pragma: no cover
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--npp",
@@ -451,5 +452,5 @@ def main():
                             args.kappatest)
     print(kappa)
 
-if __name__ == '__main__':
-    main()
+if __name__ == '__main__': # pragma: no cover
+    main(sys.argv[1:])
