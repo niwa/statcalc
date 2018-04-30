@@ -27,6 +27,14 @@ coverage run tests.py
 coverage html
 ```
 
+For updating the coverage badge, run the commands above, and then (after installing the
+[coverage-badge](https://pypi.org/project/coverage-badge/) module) run the
+`coverage-badge` command.
+
+```shell
+coverage-badge -o coverage.svg
+```
+
 ## Kappa calculator
 
 Sample usage for `kappa.py`:
