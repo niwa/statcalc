@@ -184,7 +184,7 @@ def calculate_concordance(source_data):
     table.append(['Upper two-sided 95% CL for pc = ' + str(Upper_2_95_CL_for_rc)[:6]])
     return tabulate(table, headers=headers, tablefmt="grid")
 
-def main():
+def main(): # pragma: no cover
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "source_data",
@@ -194,5 +194,5 @@ def main():
     concordance = calculate_concordance(args.source_data)
     print(concordance)
 
-if __name__ == '__main__':
+if __name__ == '__main__': # pragma: no cover
     main()

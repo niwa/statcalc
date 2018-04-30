@@ -328,7 +328,7 @@ def probn(z):
     probn=1.0-0.5*erfcc
     return probn
 
-def main():
+def main(): # pragma: no cover
     parser = argparse.ArgumentParser()
     parser.add_argument("--npp", help="number of present/present ratings", type=float, required=True, metavar=0.0)
     parser.add_argument("--npa", help="number of present/absent ratings", type=float, required=True, metavar=0.0)
@@ -339,5 +339,5 @@ def main():
     kappa = calculate_kappa(args.npp, args.npa, args.nap, args.naa, args.kappatest)
     print(kappa)
 
-if __name__ == '__main__':
+if __name__ == '__main__': # pragma: no cover
     main()

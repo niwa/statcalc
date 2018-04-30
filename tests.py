@@ -5,6 +5,7 @@ import unittest
 
 import kappa
 import kappa_simple
+import lins_concordance
 
 
 class BaseTest(unittest.TestCase):
@@ -105,7 +106,7 @@ class KappaSimpleTests(BaseTest):
 
     def test_eval_03(self):
         # --npp 0.0 --npa 1.0 --nap 1.0 --naa 0.0 --kappa_simpletest 0.5
-        with self.assertRaises(ZeroDivisionError) as context:
+        with self.assertRaises(ZeroDivisionError):
             kappa_simple.calculate_kappa(0.0, 1.0, 1.0, 0.0, 0.5)
 
     def test_kappa_less_than_zero(self):
@@ -148,6 +149,20 @@ class KappaSimpleTests(BaseTest):
         output = kappa_simple.calculate_kappa(1.0, 0.0, 0.0, 1.0, 0.5)
         self.must_contain(output, 'Perfect agreement (some rating pairs are "present", all others are "absent")')
 
+
+class LinsConcordanceTests(BaseTest):
+
+    def test_lins_concordance_eval_01(self):
+        output = lins_concordance.calculate_concordance('1~2~2~3~3~4')
+        self.must_contain(output, 'Sample concordance correlation coefficient (pc) = 0.5714')
+        self.must_contain(output, 'Lower one-sided 95% CL for pc = -0.193')
+        self.must_contain(output, 'Lower two-sided 95% CL for pc = -0.343')
+        self.must_contain(output, 'Upper one-sided 95% CL for pc = 0.9043')
+        self.must_contain(output, 'Upper two-sided 95% CL for pc = 0.9298')
+
+    def test_lins_concordance_input_01(self):
+        with self.assertRaises(IndexError):
+            lins_concordance.calculate_concordance('1~2~2~3~3')
 
 if __name__ == '__main__':
     unittest.main()
