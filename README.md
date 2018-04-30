@@ -1,5 +1,7 @@
 # Statistical Calculators
 
+![coverage-badge](coverage.svg)
+
 Statistics tools, including a kappa calculator and a Lin's concordance calculator.
 
 # Requirements
