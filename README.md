@@ -14,6 +14,11 @@ This project uses Python 3.x `unittest` module for tests. You may need to instal
 requirements first. Also, if you would like to view the test coverage, please
 install the `coverage` module.
 
+To set up
+```shell
+pip install -r requirements.txt
+```
+
 For running the tests.
 
 ```shell
