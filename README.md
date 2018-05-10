@@ -12,7 +12,7 @@ Statistics tools, including a kappa calculator and a Lin's concordance calculato
 
 This project uses Python 3.x `unittest` module for tests. You may need to install the
 requirements first. Also, if you would like to view the test coverage, please
-install the `coverage` module.
+install the `coverage` module using `pip install coverage`.
 
 To set up
 ```shell
